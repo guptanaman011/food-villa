@@ -1,26 +1,9 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import Shimmer from './Shimmer';
+import useRestaurant from '../utils/useRestaurant';
 
 const RestaurantMenu = () => {
-  const { id } = useParams();
-  const [restaurant, setRestaurant] = useState(null);
-
-  useEffect(() => {
-    async function getRestaurantInfo() {
-      try {
-        console.log('fetching...');
-        const { data } = await axios.get(
-          `https://www.eatsure.com/v1/api/get_brand_details/brand_id/${id}/store_id/10133`
-        );
-        setRestaurant(data?.data?.data[0]);
-      } catch (e) {
-        console.log('gettting error', e);
-      }
-    }
-    getRestaurantInfo();
-  }, [id]);
+  // Custom hook
+  const restaurant = useRestaurant();
 
   if (restaurant === null) {
     return <Shimmer />;

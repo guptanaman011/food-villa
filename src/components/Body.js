@@ -13,6 +13,10 @@ const Body = () => {
 
   useEffect(() => {
     getData();
+
+    return () => {
+      // code cleanup
+    };
   }, []);
 
   async function getData() {
