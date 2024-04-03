@@ -4,6 +4,7 @@ import Cards from './Cards';
 import axios from 'axios';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
+import useOnline from '../utils/useOnline';
 
 const Body = () => {
   const [searchText, setSearchText] = useState('');
@@ -41,6 +42,12 @@ const Body = () => {
         .includes(searchText?.toLocaleLowerCase());
     });
     setFilteredData(filteredData);
+  }
+
+  const isOnline = useOnline();
+
+  if(!isOnline) {
+    return (<h1>🛑 You are offline, Please check your internet connection. </h1>)
   }
 
   return (
