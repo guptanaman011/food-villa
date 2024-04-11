@@ -1,32 +1,36 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { LOGO } from '../const';
+
+const Title = () => {
+  return(
+    <a href='/'>
+      <img className='h-28 p-2' src={LOGO} alt='logo'/>
+    </a>
+  )
+}
 
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <>
-      <div className="header">
-        <div className="logo">
-          <img
-            src="https://content.jdmagicbox.com/comp/ujjain/i2/9999px734.x734.220902165921.e9i2/catalogue/food-villa-freeganj-ujjain-ujjain-fast-food-j7m5i7idmz.jpg"
-            alt="logo"
-          />
-        </div>
+      <div className="flex justify-between bg-pink-50 shadow-lg ">
+       <Title />
         <div className="nav-items">
-          <ul>
-            <li>
+          <ul className='flex py-10'>
+            <li className='px-2'>
               <Link to="/">Home</Link>
             </li>
-            <li>
+            <li className='px-2'>
               <Link to="/about">About</Link>
             </li>
-            <li>
+            <li className='px-2'>
               <Link to="/contact">Contact</Link>
             </li>
-            <li>
+            <li className='px-2'>
               <Link to="/cart">Cart</Link>
             </li>
-            <li>
+            <li className='px-2'>
               <Link to="/instamart">Instamart</Link>
             </li>
           </ul>

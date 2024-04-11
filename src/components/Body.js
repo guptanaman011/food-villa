@@ -52,13 +52,16 @@ const Body = () => {
 
   return (
     <div className="body">
-      <input
-        type="text"
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
-      />
-      <button onClick={handleSearch}>Submit</button>
-      <div className="card-view">
+      <div className='search-container p-5 bg-pink-50 my-5'>
+        <input
+          className='focus:bg-purple-50'
+          type="text"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        <button className='p-2 m-2 bg-purple-800 text-white rounded-md hover:bg-purple-900' onClick={handleSearch}>Submit</button>
+      </div>
+      <div className="flex flex-wrap">
         {loading ? (
           <Shimmer />
         ) : data.length === 0 ? (
@@ -70,7 +73,7 @@ const Body = () => {
                 to={`/restaurant/${restaurant.brand_id}`}
                 key={restaurant.brand_id}
               >
-                <Cards restaurant={restaurant} />;
+                <Cards restaurant={restaurant} />
               </Link>
             );
           })
