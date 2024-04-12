@@ -10,6 +10,7 @@ import Body from "./components/Body";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
+import Cart from "./components/cart";
 
 const Instamart = lazy(() => import("./components/Instamart"));
 
@@ -48,6 +49,10 @@ const appRouter = createBrowserRouter([
             <Instamart />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />
       },
     ],
   },

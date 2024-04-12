@@ -4,6 +4,7 @@ import { LOGO } from '../const';
 import { useContext } from 'react';
 import useOnline from '../utils/useOnline';
 import userContext from '../utils/userContext';
+import { useSelector } from "react-redux";
 
 const Title = () => {
   return(
@@ -19,6 +20,10 @@ function Header() {
   const isOnline = useOnline();
 
   const {user} = useContext(userContext); 
+
+  const cartItems = useSelector((store) => store.cart.items);
+
+  console.log(cartItems);
 
   return (
     <>
@@ -36,10 +41,10 @@ function Header() {
               <Link to="/contact">Contact</Link>
             </li>
             <li className='px-2'>
-              <Link to="/cart">Cart</Link>
+              <Link to="/instamart">Instamart</Link>
             </li>
             <li className='px-2'>
-              <Link to="/instamart">Instamart</Link>
+              <Link to="/cart">Cart - {cartItems.length} Items</Link>
             </li>
           </ul>
         </div>
