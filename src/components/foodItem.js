@@ -11,7 +11,7 @@ const FoodItem = ({background_url, brand_name, main_offering, brand_id}) => {
 
     return (
       <div className="w-56 h-76 p-2 m-2 shadow-lg bg-pink-50">
-        <button className="bg-red-200" onClick={() => handleRemoveItem(brand_id)}>❌</button>
+        <button onClick={() => handleRemoveItem(brand_id)}>❌</button>
         <img src={background_url} alt="bgImage"></img>
         <h2 className="font-bold text-xl">{brand_name}</h2>
         <h4>Main offering - {main_offering}</h4>

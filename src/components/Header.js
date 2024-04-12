@@ -44,7 +44,7 @@ function Header() {
               <Link to="/instamart">Instamart</Link>
             </li>
             <li className='px-2'>
-              <Link to="/cart">Cart - {cartItems.length} Items</Link>
+              <Link to="/cart">Cart - <span className='font-bold'> {cartItems.length} Items </span></Link>
             </li>
           </ul>
         </div>
