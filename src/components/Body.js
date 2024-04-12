@@ -1,16 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { EAT_SURE_API } from '../const';
 import Cards from './Cards';
 import axios from 'axios';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
 import useOnline from '../utils/useOnline';
+import userContext from '../utils/userContext';
 
 const Body = () => {
   const [searchText, setSearchText] = useState('');
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const {user, setUser} = useContext(userContext);
 
   useEffect(() => {
     getData();
@@ -60,6 +63,7 @@ const Body = () => {
           onChange={(e) => setSearchText(e.target.value)}
         />
         <button className='p-2 m-2 bg-purple-800 text-white rounded-md hover:bg-purple-900' onClick={handleSearch}>Submit</button>
+        <input value={user.name} onChange={(e) => setUser({name: e.target.value, email: 'newemail@gmail.com'})}/>
       </div>
       <div className="flex flex-wrap">
         {loading ? (

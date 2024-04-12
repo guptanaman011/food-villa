@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LOGO } from '../const';
+import { useContext } from 'react';
+import useOnline from '../utils/useOnline';
+import userContext from '../utils/userContext';
 
 const Title = () => {
   return(
@@ -12,6 +15,11 @@ const Title = () => {
 
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const isOnline = useOnline();
+
+  const {user} = useContext(userContext); 
+
   return (
     <>
       <div className="flex justify-between bg-pink-50 shadow-lg ">
@@ -35,6 +43,8 @@ function Header() {
             </li>
           </ul>
         </div>
+        <h1>{isOnline ? "🟢" : "🛑"}</h1>
+        <span className='font-bold p-10 text-red-500'>{user.name}</span>
         {isLoggedIn ? (
           <button
             onClick={() => {
