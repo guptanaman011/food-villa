@@ -27,7 +27,7 @@ const RestaurantMenu = () => {
       <img src={restaurant?.rectangle_logo} alt="logo" />
       <h3>Special: {restaurant?.main_offering}</h3>
       <button className="p-2 m-5 bg-green-100" onClick={() => handleAddItem(restaurant)}>
-        Add Iteam
+        Add Item
       </button>
       <h3>Slug: {restaurant?.slug}</h3>
       {restaurant?.discount_info && restaurant.discount_info.length > 0 ? (
